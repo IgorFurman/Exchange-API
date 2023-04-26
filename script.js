@@ -4,6 +4,7 @@ const amountOne = document.querySelector('.amount-one');
 const amountTwo = document.querySelector('.amount-two');
 const swapBtn = document.querySelector('.swap');
 const rateInfo = document.querySelector('.rate-info');
+const currentDay = document.querySelector('.current-day')
 
 console.log(swapBtn);
 
@@ -27,6 +28,14 @@ const swapCurrency = () => {
     currencyTwo.value = swappedCurrency;
     calculate()
 }
+
+const handleCurrentDateAndSourceOfCurrency = () => {
+	const today = new Date();
+const options = { day: 'numeric', month: 'numeric', year: 'numeric' };
+currentDay.textContent = `Kursy aktualne na dzień ${today.toLocaleDateString('pl-PL', options)}r. i pochodzą bezpośrednio z baz danych Komisji Europejskiej`
+
+};
+handleCurrentDateAndSourceOfCurrency();
 
 currencyOne.addEventListener('change', calculate);
 currencyTwo.addEventListener('change', calculate);
